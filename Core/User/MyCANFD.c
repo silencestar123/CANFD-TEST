@@ -147,16 +147,23 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
    }
 
 }
-void HAL_FDCAN_ErrorCallback(FDCAN_HandleTypeDef *hfdcan)
+/**
+  * @brief FDCAN 错误状态回调（HAL库自动调用）
+  * @param hfdcan        FDCAN句柄
+  * @param ErrorStatusITs 触发中断的错误标志组合（例如 FDCAN_IT_BUS_OFF）
+  */
+void HAL_FDCAN_ErrorStatusCallback(FDCAN_HandleTypeDef *hfdcan, uint32_t ErrorStatusITs)
 {
+    /* 检查是否是本FDCAN3触发的Bus-Off中断 */
     if (hfdcan->Instance == FDCAN3)
     {
-        // 读取中断寄存器中的总线关闭标志位
-        if (hfdcan->Instance->IR & FDCAN_IR_BO)
+        if (ErrorStatusITs & FDCAN_IT_BUS_OFF)
         {
-            // 总线关闭，复位并重新启动
-            HAL_FDCAN_Stop(hfdcan);
-            HAL_FDCAN_Start(hfdcan);
+            /* 核心恢复操作：清除 INIT 位，让硬件自动等待总线空闲后恢复 */
+            CLEAR_BIT(hfdcan->Instance->CCCR, FDCAN_CCCR_INIT);
+
+            /* 清除 Bus-Off 中断挂起标志（使用正确的宏和标志位） */
+            __HAL_FDCAN_CLEAR_FLAG(hfdcan, FDCAN_IR_BO);
         }
     }
 }
