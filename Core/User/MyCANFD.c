@@ -9,7 +9,7 @@ FDCAN_TxHeaderTypeDef FDCAN_TxHeader;
 FDCAN_RxHeaderTypeDef FDCAN_RxHeader;
 FDCAN_TxHeaderTypeDef FDCAN_TxHeader_TEST;
 uint8_t Date_TEXT[8]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-uint8_t can3_rxbuf[]={0};
+uint8_t can3_rxbuf[64]={0};
 uint8_t CANFD_MODE=0;	/*如果值为0，运行SYSTICK里的程序，如果值为1运行其他程序*/
 /**
  * @brief CANFD初始化函数
@@ -38,7 +38,7 @@ void FDCAN_Config(void)
          Error_Handler();
        }
      FDCAN_FilterInitStructure.IdType=FDCAN_EXTENDED_ID;
-     FDCAN_FilterInitStructure.FilterIndex=0;
+     FDCAN_FilterInitStructure.FilterIndex=1;
      FDCAN_FilterInitStructure.FilterType=FDCAN_FILTER_RANGE;
      FDCAN_FilterInitStructure.FilterConfig=FDCAN_FILTER_TO_RXFIFO0;
      FDCAN_FilterInitStructure.FilterID1=0x00000000;
@@ -64,7 +64,7 @@ void FDCAN_Config(void)
        FDCAN_TxHeader.TxFrameType=FDCAN_DATA_FRAME;
        FDCAN_TxHeader.DataLength=FDCAN_DLC_BYTES_8;
        FDCAN_TxHeader.ErrorStateIndicator=FDCAN_ESI_PASSIVE;
-       FDCAN_TxHeader.BitRateSwitch=FDCAN_BRS_OFF;
+       FDCAN_TxHeader.BitRateSwitch=FDCAN_BRS_ON;
        FDCAN_TxHeader.FDFormat=FDCAN_FD_CAN;
        FDCAN_TxHeader.TxEventFifoControl=FDCAN_NO_TX_EVENTS;
        FDCAN_TxHeader.MessageMarker=0;
