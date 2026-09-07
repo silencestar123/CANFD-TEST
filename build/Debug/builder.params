@@ -1,0 +1,126 @@
+{
+    "name": "CANFD-TEST",
+    "target": "Debug",
+    "toolchain": "GCC",
+    "toolchainLocation": "C:\\Users\\Hxqy\\.eide\\tools\\gcc_arm",
+    "toolchainCfgFile": "c:\\Users\\Hxqy\\.vscode\\extensions\\cl.eide-3.27.2\\res\\data\\models/arm.gcc.model.json",
+    "buildMode": "fast|multhread",
+    "showRepathOnLog": true,
+    "threadNum": 8,
+    "rootDir": "d:\\STM32Projecet\\CANFD-TEST",
+    "dumpPath": "build\\Debug",
+    "outDir": "build\\Debug",
+    "incDirs": [
+        "Core/Inc",
+        "Drivers/STM32G4xx_HAL_Driver/Inc",
+        "Drivers/STM32G4xx_HAL_Driver/Inc/Legacy",
+        "Drivers/CMSIS/Device/ST/STM32G4xx/Include",
+        "Drivers/CMSIS/Include",
+        "Core/User"
+    ],
+    "libDirs": [],
+    "defines": [
+        "DEBUG",
+        "USE_HAL_DRIVER",
+        "STM32G474xx"
+    ],
+    "sourceList": [
+        "Core/Src/fdcan.c",
+        "Core/Src/gpio.c",
+        "Core/Src/main.c",
+        "Core/Src/stm32g4xx_hal_msp.c",
+        "Core/Src/stm32g4xx_it.c",
+        "Core/Src/syscalls.c",
+        "Core/Src/sysmem.c",
+        "Core/Src/system_stm32g4xx.c",
+        "Core/Startup/startup_stm32g474retx.s",
+        "Core/User/MyCANFD.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c",
+        "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c"
+    ],
+    "alwaysInBuildSources": [],
+    "sourceParams": {},
+    "options": {
+        "version": 5,
+        "afterBuildTasks": [],
+        "asm-compiler": {
+            "ASM_FLAGS": "-DDEBUG"
+        },
+        "beforeBuildTasks": [],
+        "c/cpp-compiler": {
+            "CXX_FLAGS": "",
+            "C_FLAGS": "",
+            "language-c": "c11",
+            "language-cpp": "c++11",
+            "one-elf-section-per-data": true,
+            "one-elf-section-per-function": true,
+            "optimization": "level-debug",
+            "warnings": "all-warnings"
+        },
+        "global": {
+            "$float-abi-type": "hard",
+            "misc-control": [],
+            "not-use-syscalls": true,
+            "output-debug-info": "enable",
+            "use-newlib-nano": true,
+            "toolPrefix": "arm-none-eabi-",
+            "arm-thumb-mode": "thumb",
+            "microcontroller-cpu": "cortex-m4-sp",
+            "microcontroller-fpu": "cortex-m4-sp",
+            "microcontroller-float": "cortex-m4-sp",
+            "$arch-extensions": "",
+            "$clang-arch-extensions": "",
+            "$armlink-arch-extensions": ""
+        },
+        "linker": {
+            "$outputTaskExcludes": [
+                ".bin"
+            ],
+            "LD_FLAGS": "",
+            "LIB_FLAGS": "",
+            "output-format": "elf",
+            "remove-unused-input-sections": true,
+            "$toolName": "gcc",
+            "link-scatter": [
+                "d:/STM32Projecet/CANFD-TEST/STM32G474RETX_FLASH.ld"
+            ]
+        }
+    },
+    "env": {
+        "workspaceFolder": "d:\\STM32Projecet\\CANFD-TEST",
+        "workspaceFolderBasename": "CANFD-TEST",
+        "OutDir": "d:\\STM32Projecet\\CANFD-TEST\\build\\Debug",
+        "OutDirRoot": "build",
+        "OutDirBase": "build\\Debug",
+        "ProjectName": "CANFD-TEST",
+        "ConfigName": "Debug",
+        "ProjectRoot": "d:\\STM32Projecet\\CANFD-TEST",
+        "ExecutableName": "d:\\STM32Projecet\\CANFD-TEST\\build\\Debug\\CANFD-TEST",
+        "ChipPackDir": "",
+        "ChipName": "",
+        "SYS_Platform": "win32",
+        "SYS_DirSep": "\\",
+        "SYS_DirSeparator": "\\",
+        "SYS_PathSep": ";",
+        "SYS_PathSeparator": ";",
+        "SYS_EOL": "\r\n",
+        "EIDE_BUILDER_DIR": "c:\\Users\\Hxqy\\.vscode\\extensions\\cl.eide-3.27.2\\res\\tools\\win32\\unify_builder",
+        "EIDE_BINARIES_VER": "12.1.1",
+        "EIDE_MSYS": "C:\\Users\\Hxqy\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\Hxqy\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "C:\\Users\\Hxqy\\.eide\\tools\\gcc_arm"
+    },
+    "sysPaths": []
+}
